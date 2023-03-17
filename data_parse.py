@@ -43,4 +43,4 @@ if __name__ == "__main__" :
 
   df_class_labels = pd.concat([df_test,df_train])
 
-  df_class_labels.to_csv(class_labels_path,index = False)
+  df_class_labels.to_csv(class_label_path,index = False)
