@@ -10,7 +10,7 @@ import keras_ocr
 import matplotlib.pyplot as plt
 import pandas as pd
 import gc
-from config import img_dir , binary_result_dir
+from config import img_dir , binary_result_dir,otsu_test_extract_results_path,slide_otsu_test_extract_results_path
 
 
 class SlideOtsu :
@@ -133,6 +133,9 @@ if __name__ == "__main__" :
   result = slide_otsu.ocr_extract()
   
   df_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])
+  
+  df_otsu.to_csv(otsu_test_extract_results_path,index = False)  
+  
 
   ## SlideOtsu Run
   for image_path in os.listdir(img_dir) :
@@ -140,4 +143,6 @@ if __name__ == "__main__" :
     binary_img= slide_otsu.run_slide_otsu()
   result = slide_otsu.ocr_extract()
   
-  df_slide_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])  
+  df_slide_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])
+  df_slide_otsu.to_csv(slide_otsu_test_extract_results_path,index = False)
+
