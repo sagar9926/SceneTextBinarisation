@@ -1,0 +1,4 @@
+git+https://github.com/faustomorales/keras-ocr.git#egg=keras-ocr
+keras-ocr
+matplotlib==3.3.0
+thefuzz
