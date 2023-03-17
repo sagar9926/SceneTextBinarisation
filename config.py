@@ -3,6 +3,10 @@ import os
 ## Project_directory
 proj_dir = './scene_text'
 
+## Scene Images Dir
+img_dir = os.path.join(proj_dir,'img')
+binary_result_dir = os.path.join(proj_dir,'binary')
+
 ## Ground truth .xml file paths 
 train_xml_path = os.path.join(proj_dir,'train.xml')
 test_xml_path = os.path.join(proj_dir,'test.xml')
