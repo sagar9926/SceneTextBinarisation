@@ -154,6 +154,8 @@ if __name__ == "__main__" :
   
   ## Storing SlideOtsu Results
   df_slide_otsu.to_csv(slide_otsu_test_extract_results_path,index = False)
+  
+  ## Performance Evaluation 
 
   
 
