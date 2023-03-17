@@ -1,22 +1,25 @@
 ##########################################################################################
 ######### Parsing labels corresponding to scene text from the .xml files  ################
+
+### Steps to execute the code :
+###      1. Unzip the folder with the scene images using the command : !unzip /content/drive/MyDrive/SVT/archive.zip
+###      2. execute the data_parse.py code
+###      3. 
 ##########################################################################################
+# from google.colab import drive
+# drive.mount('/content/drive/')
+# !unzip /content/drive/MyDrive/SVT/archive.zip
 
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
-from google.colab import drive
+from config import class_label_path,train_xml_path,test_xml_path
 
-drive.mount('/content/drive/')
-
-!unzip /content/drive/MyDrive/SVT/archive.zip
-
-class_label_path = "/content/drive/MyDrive/SVT/ground_truth.csv"
 
 ## Data Parsing Script 
 if __name__ == "__main__" :
 
-  with open('/content/train.xml') as f :
+  with open(train_xml_path) as f :
     all_tags = f.read()
 
   image_data_all_tags  = re.findall("<image>(.*?)</image>", all_tags, re.DOTALL)
@@ -27,7 +30,7 @@ if __name__ == "__main__" :
     row_list = [image_name , text]
     df_train = df_train.append(pd.Series(row_list, index = ['image_path','scene_text']), ignore_index=True)
 
-  with open('/content/test.xml') as f :
+  with open(test_xml_path) as f :
     all_tags = f.read()
 
   image_data_all_tags  = re.findall("<image>(.*?)</image>", all_tags, re.DOTALL)
