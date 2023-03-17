@@ -1,3 +1,4 @@
+
 # importing OpenCV(cv2) module
 import cv2
 import cv2 as cv
@@ -9,10 +10,11 @@ import keras_ocr
 import matplotlib.pyplot as plt
 import pandas as pd
 import gc
+from config import img_dir , binary_result_dir
 
 
 class SlideOtsu :
-  def __init__(self,image_path,method) :
+  def __init__(self,image_path,binary_result_dir,method) :
     
     """
     This is a class that implements the proposed SlideOtsu method.
@@ -20,9 +22,9 @@ class SlideOtsu :
     # Read RGB image
     self.image_path = image_path
     if method == 'slide_otsu':
-      self.binary_result_dir = './binary/slide_otsu'
+      self.binary_result_dir = os.path.join(binary_result_dir,'slide_otsu')
     elif method == 'otsu' :
-       self.binary_result_dir = './binary/otsu'
+       self.binary_result_dir = os.path.join(binary_result_dir,'otsu')
     if not os.path.exists(self.binary_result_dir):
       os.makedirs(self.binary_result_dir)
     self.img = cv2.imread(self.image_path)
@@ -69,9 +71,9 @@ class SlideOtsu :
 
 
   def run_slide_otsu(self) :
+    
     """
     This method implements Executes the Slide Otsu thresholding technique
-    
     """
     ## Image Enhancement
     sharpened =  self.fn_image_enhancement()
@@ -84,7 +86,6 @@ class SlideOtsu :
     binary_img_name = self.image_path.split('/')[-1]
     
     cv2.imwrite(os.path.join(self.binary_result_dir,'binary_'+binary_img_name), 255 - windows)
-    # cv2.imwrite(os.path.join(self.binary_result_dir,'binary_0_'+binary_img_name), windows)
   
   def run_otsu(self) :
 
@@ -124,12 +125,10 @@ class SlideOtsu :
 
 
 if __name__ == "__main__" :
-  
-  img_dir = './img'
 
   ## Otsu Run
   for image_path in os.listdir(img_dir) :
-    slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),method = 'otsu')
+    slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),binary_result_dir,method = 'otsu')
     binary_img= slide_otsu.run_otsu()
   result = slide_otsu.ocr_extract()
   
@@ -137,7 +136,7 @@ if __name__ == "__main__" :
 
   ## SlideOtsu Run
   for image_path in os.listdir(img_dir) :
-    slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),method = 'slide_otsu')
+    slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),binary_result_dir,method = 'slide_otsu')
     binary_img= slide_otsu.run_slide_otsu()
   result = slide_otsu.ocr_extract()
   
