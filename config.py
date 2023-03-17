@@ -5,6 +5,8 @@ proj_dir = './scene_text'
 
 ## Scene Images Dir
 img_dir = os.path.join(proj_dir,'img')
+
+## Binary Images Dir
 binary_result_dir = os.path.join(proj_dir,'binary')
 
 ## Ground truth .xml file paths 
