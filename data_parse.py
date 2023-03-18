@@ -42,5 +42,6 @@ if __name__ == "__main__" :
     df_test = df_test.append(pd.Series(row_list, index = ['image_path','scene_text']), ignore_index=True)
 
   df_class_labels = pd.concat([df_test,df_train])
-
+  df_class_labels['image_path'] = df_class_labels['image_path'].apply(lambda text : text.replace('img/',''))
+  
   df_class_labels.to_csv(class_label_path,index = False)
