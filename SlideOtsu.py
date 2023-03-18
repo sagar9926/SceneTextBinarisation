@@ -174,7 +174,7 @@ if __name__ == "__main__" :
   df_merge = pd.merge(df_merge,df_gt,on = 'image_path')
   
   df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_otsu',method = 'otsu') 
-  df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_slide_otsu',method = 'slide_otsu'):
+  df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_slide_otsu',method = 'slide_otsu')
   
   print("Comparison of text similarity scores for the two methods (Otsu v/s Slide_Otsu): ")
   df_merge['score_otsu','score_slide_otsu'].describe()
