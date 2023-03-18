@@ -10,7 +10,12 @@ import keras_ocr
 import matplotlib.pyplot as plt
 import pandas as pd
 import gc
-from config import img_dir , binary_result_dir,otsu_test_extract_results_path,slide_otsu_test_extract_results_path
+
+## Input Paths
+from config import class_label_path
+
+## Output Paths 
+from config import img_dir , binary_result_dir ,otsu_test_extract_results_path,slide_otsu_test_extract_results_path
 
 
 class SlideOtsu :
@@ -127,6 +132,7 @@ class SlideOtsu :
 if __name__ == "__main__" :
 
   ## Otsu Run
+  print("Running Otsu's Binarisation : ")
   for image_path in os.listdir(img_dir) :
     slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),binary_result_dir,method = 'otsu')
     binary_img= slide_otsu.run_otsu()
@@ -142,6 +148,7 @@ if __name__ == "__main__" :
   
 
   ## SlideOtsu Run
+  print("Running Slide_Otsu's Binarisation : ")
   for image_path in os.listdir(img_dir) :
     slide_otsu = SlideOtsu(os.path.join(img_dir,image_path),binary_result_dir,method = 'slide_otsu')
     binary_img= slide_otsu.run_slide_otsu()
@@ -155,8 +162,18 @@ if __name__ == "__main__" :
   ## Storing SlideOtsu Results
   df_slide_otsu.to_csv(slide_otsu_test_extract_results_path,index = False)
   
-  ## Performance Evaluation 
-
+  ## Performance Evaluation
+  
+  ### Read the ground truth file
+  df_gt = pd.read_csv(class_label_path)
+  
+  print("Evaluating Model Performances ... ")
+  df_merge = pd.merge(df_otsu,df_slide_otsu,on = 'image_path',how = 'inner',suffixes = ("_otsu",'_slide_otsu'))
+  df_merge = pd.merge(df_merge,df_gt,on = 'image_path')
+  
+  print("Comparison of text similarity scores for the two methods (Otsu v/s Slide_Otsu): ")
+  df_merge['score_otsu','score_slide_otsu'].describe()
+  
   
 
 
