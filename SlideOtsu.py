@@ -15,7 +15,7 @@ import gc
 from config import class_label_path
 
 ## Output Paths 
-from config import img_dir , binary_result_dir ,otsu_test_extract_results_path,slide_otsu_test_extract_results_path
+from config import img_dir , binary_result_dir ,otsu_text_extract_results_path,slide_otsu_text_extract_results_path
 
 ## Helper Function
 from evaluation_fn import evaluation_metric
@@ -141,12 +141,12 @@ if __name__ == "__main__" :
   result = slide_otsu.ocr_extract()
   
   df_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])
-  df_otsu['image_path'] = df_otsu['image_path'].apply(lambda text : text.replace('./binary/otsu/',''))
+  df_otsu['image_path'] = df_otsu['image_path'].apply(lambda text : text.replace('./scene_text/binary/otsu/',''))
   df_otsu['image_path'] = df_otsu['image_path'].apply(lambda text : text.replace('binary_',''))
   df_otsu['extracted_text'] = df_otsu['extracted_text'].apply(lambda text : text.upper())
   
   ## Storing Otsu Results
-  df_otsu.to_csv(otsu_test_extract_results_path,index = False)  
+  df_otsu.to_csv(otsu_text_extract_results_path,index = False)  
   
 
   ## SlideOtsu Run
@@ -157,12 +157,11 @@ if __name__ == "__main__" :
   result = slide_otsu.ocr_extract()
   
   df_slide_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])
-  df_slide_otsu['image_path'] = df_slide_otsu['image_path'].apply(lambda text : text.replace('./binary/slide_otsu/',''))
-  df_slide_otsu['image_path'] = df_slide_otsu['image_path'].apply(lambda text : text.replace('binary_',''))
+  df_slide_otsu['image_path'] = df_slide_otsu['image_path'].apply(lambda text : text.replace('./scene_text/binary/slide_otsu/',''))
   df_slide_otsu['extracted_text'] = df_slide_otsu['extracted_text'].apply(lambda text : text.upper())
   
   ## Storing SlideOtsu Results
-  df_slide_otsu.to_csv(slide_otsu_test_extract_results_path,index = False)
+  df_slide_otsu.to_csv(slide_otsu_text_extract_results_path,index = False)
   
   ## Performance Evaluation
   
