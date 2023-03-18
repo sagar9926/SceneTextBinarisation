@@ -19,8 +19,8 @@ class_label_path = os.path.join(proj_dir,"ground_truth.csv")
 
 ## OCR results :
 
-otsu_test_extract_results_path = os.path.join(results_dir,"otsu_text_extract_results_path.csv")
-slide_otsu_test_extract_results_path = os.path.join(results_dir,"slide_otsu_text_extract_results_path.csv")
+otsu_text_extract_results_path = os.path.join(results_dir,"otsu_text_extract_results_path.csv")
+slide_otsu_text_extract_results_path = os.path.join(results_dir,"slide_otsu_text_extract_results_path.csv")
 
 
 # Directory Creation 
