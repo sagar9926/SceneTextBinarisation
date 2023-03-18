@@ -158,6 +158,7 @@ if __name__ == "__main__" :
   
   df_slide_otsu = pd.DataFrame(result,columns = ['image_path','extracted_text'])
   df_slide_otsu['image_path'] = df_slide_otsu['image_path'].apply(lambda text : text.replace('./scene_text/binary/slide_otsu/',''))
+  df_slide_otsu['image_path'] = df_slide_otsu['image_path'].apply(lambda text : text.replace('binary_',''))
   df_slide_otsu['extracted_text'] = df_slide_otsu['extracted_text'].apply(lambda text : text.upper())
   
   ## Storing SlideOtsu Results
