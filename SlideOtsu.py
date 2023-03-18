@@ -17,6 +17,8 @@ from config import class_label_path
 ## Output Paths 
 from config import img_dir , binary_result_dir ,otsu_test_extract_results_path,slide_otsu_test_extract_results_path
 
+## Helper Function
+from evaluation_fn import evaluation_metric
 
 class SlideOtsu :
   def __init__(self,image_path,binary_result_dir,method) :
@@ -170,6 +172,9 @@ if __name__ == "__main__" :
   print("Evaluating Model Performances ... ")
   df_merge = pd.merge(df_otsu,df_slide_otsu,on = 'image_path',how = 'inner',suffixes = ("_otsu",'_slide_otsu'))
   df_merge = pd.merge(df_merge,df_gt,on = 'image_path')
+  
+  df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_otsu',method = 'otsu') 
+  df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_slide_otsu',method = 'slide_otsu'):
   
   print("Comparison of text similarity scores for the two methods (Otsu v/s Slide_Otsu): ")
   df_merge['score_otsu','score_slide_otsu'].describe()
