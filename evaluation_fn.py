@@ -9,7 +9,7 @@ def evaluation_metric(df,ground_truth_col,pred_col,method):
   the binary images. 
   """
 
-  df_merge[f'score_{method}'] = df_merge.apply(lambda row : fuzz.partial_ratio(row[ground_truth_col],row[pred_col]),axis = 1)
+  df[f'score_{method}'] = df.apply(lambda row : fuzz.partial_ratio(row[ground_truth_col],row[pred_col]),axis = 1)
   
   return df
 
