@@ -32,8 +32,8 @@ Once the text is extracted from the binary images using **Keras-OCR** method. Th
 
 #### Example 2 :
 
-![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res1.png)
+![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res2.png)
 
 #### Example 3 : 
 
-![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res1.png)
+![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res3.png)
