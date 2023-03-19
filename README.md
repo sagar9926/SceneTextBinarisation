@@ -20,3 +20,20 @@ Kapur Sahoo Wong method maximizes entropy of image’s histogram to get optimum 
 * Calculate similarity score ratio measure the similarity of extracted text with the ground truth and define a similarity score
  
 Once the text is extracted from the binary images using **Keras-OCR** method. Then for evaluating the quality of extraction we have used fuzzy logic for string matching.We have calculated the partial ratio raw score which is a measure of the strings similarity and used the same to compare the performance of the Slide Otsu Technique with the classical otsu.
+
+
+## Reults :
+
+### Slide Otsu : 
+
+#### Example 1 :
+
+![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res1.png)
+
+#### Example 2 :
+
+![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res1.png)
+
+#### Example 3 : 
+
+![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/sotsu_res1.png)
