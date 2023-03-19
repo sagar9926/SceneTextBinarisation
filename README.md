@@ -2,7 +2,9 @@
 
 ## Problem Statement : 
 
-Scene text binarization is a difficult task due to text differences in the background noise, and uneven lighting in Natural Scene pictures. In our work we try to improve upon the existing Otsu’s and Kapur Sahoo Wong's binarization method that leverages class variances of image histogram of the image to classify the pixel into background and foreground based. 
+Scene text binarization is a difficult task due to text differences in the background noise, and uneven lighting in Natural Scene pictures. In our work we try to improve upon the existing Otsu’s and Kapur Sahoo Wong's binarization method that leverages class variances of image histogram of the image to classify the pixel into background and foreground based.
+
+## Dataset : The Street View Text (SVT) dataset was harvested from Google Street View. Image text in this data exhibits high variability and often has low resolution. [SVT Dataset link](https://www.kaggle.com/datasets/nageshsingh/the-street-view-text-dataset)
 
 ## Proposed Solutions : 
 
