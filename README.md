@@ -28,7 +28,7 @@ For evaluating the quality of extraction we have used fuzzy logic for string mat
 Once the text is extracted from the binary images using **Keras-OCR** method. Then for evaluating the quality of extraction we have used fuzzy logic for string matching.We have calculated the partial ratio raw score which is a measure of the strings similarity and used the same to compare the performance of the Slide Otsu Technique with the classical otsu.
 
 For our project we have tested our algorithms on 322+ images from SVT dataset. It is a dataset that was harvested from Google Street View. Following table compares the similarity score distribution of Otsu vs Slide Otsu. In our results we can see that with the pro-
-posed Slide Otsu method, the average similarity with the ground truth has improved by 5 % from 57.27 % to 62.1 % that too with a lesser standard deviation as compared to the Original Otsu.
+posed Slide Otsu method, the average similarity with the ground truth has improved by __5%__ from __57.27%__ to __62.1%__ that too with a lesser standard deviation as compared to the Original Otsu.
 
 <p align="center">
   <img src="https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/similarity_results_sotsu.png" alt=""/>
