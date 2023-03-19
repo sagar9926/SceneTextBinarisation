@@ -26,7 +26,9 @@ Once the text is extracted from the binary images using **Keras-OCR** method. Th
 For our project we have tested our algorithms on 322+ images from SVT dataset. It is a dataset that was harvested from Google Street View. Following table compares the similarity score distribution of Otsu vs Slide Otsu. In our results we can see that with the pro-
 posed Slide Otsu method, the average similarity with the ground truth has improved by 5 % from 57.27 % to 62.1 % that too with a lesser standard deviation as compared to the Original Otsu.
 
-![alt text](https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/similarity_results_sotsu.png)
+<p align="center">
+  <img src="(https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/similarity_results_sotsu.png" alt=""/>
+</p>
 
 ## Reults :
 
