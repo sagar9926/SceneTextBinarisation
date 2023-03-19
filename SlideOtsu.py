@@ -15,7 +15,7 @@ import gc
 from config import class_label_path
 
 ## Output Paths 
-from config import img_dir , binary_result_dir ,otsu_text_extract_results_path,slide_otsu_text_extract_results_path
+from config import img_dir , binary_result_dir ,otsu_text_extract_results_path,slide_otsu_text_extract_results_path,eval_results_path
 
 ## Helper Function
 from evaluation_fn import evaluation_metric
@@ -176,6 +176,9 @@ if __name__ == "__main__" :
   df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_otsu',method = 'otsu') 
   df_merge =  evaluation_metric(df_merge,ground_truth_col = 'scene_text' , pred_col = 'extracted_text_slide_otsu',method = 'slide_otsu')
   
+  ## Storing model evaluation results
+  df_merge.to_csv(eval_results_path,index = False)
+   
   print("Comparison of text similarity scores for the two methods (Otsu v/s Slide_Otsu): ")
   print(df_merge[['score_otsu','score_slide_otsu']].describe())
   
