@@ -1,4 +1,4 @@
-from evaluation import *
+from evaluation_fn import *
 from extraction import *
 from kapur_sahoo_wong import *
 from preprocessing import *
