@@ -27,7 +27,7 @@ For our project we have tested our algorithms on 322+ images from SVT dataset. I
 posed Slide Otsu method, the average similarity with the ground truth has improved by 5 % from 57.27 % to 62.1 % that too with a lesser standard deviation as compared to the Original Otsu.
 
 <p align="center">
-  <img src="(https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/similarity_results_sotsu.png" alt=""/>
+  <img src="https://github.com/sagar9926/SceneTextBinarisation/blob/main/results/Slide_Otsu/similarity_results_sotsu.png" alt=""/>
 </p>
 
 ## Reults :
