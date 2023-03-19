@@ -49,4 +49,9 @@ if __name__ == "__main__":
 
     score1 = evaluate(df['Text_Present'], df1)
     score2 = evaluate(df['Text_Present'], df2)
-    print(pd.merge(score1, score2).describe())
+    des1 = score1.describe()
+    des2 = score2.describe()
+    des1.columns =['Kapur Sahoo Wong']
+    des2.columns =['Modified Kapur Sahoo Wong']
+    score = pd.concat([des1, des2], axis=1)
+    print(score)
