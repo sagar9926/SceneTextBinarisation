@@ -21,6 +21,7 @@ class_label_path = os.path.join(proj_dir,"ground_truth.csv")
 
 otsu_text_extract_results_path = os.path.join(results_dir,"otsu_text_extract_results_path.csv")
 slide_otsu_text_extract_results_path = os.path.join(results_dir,"slide_otsu_text_extract_results_path.csv")
+eval_results_path =  os.path.join(results_dir,"evaluation_results.csv")
 
 
 # Directory Creation 
